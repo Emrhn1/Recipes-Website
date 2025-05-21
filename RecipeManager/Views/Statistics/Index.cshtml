@@ -1,0 +1,100 @@
+@model RecipeManager.Models.ViewModels.StatisticsViewModel
+
+@{
+    ViewData["Title"] = "Recipe Statistics";
+}
+
+<div class="container">
+    <h1>Recipe Statistics</h1>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3 class="card-title">@Model.TotalRecipes</h3>
+                    <p class="card-text">Total Recipes</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3 class="card-title">@Model.TotalCategories</h3>
+                    <p class="card-text">Total Categories</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h3 class="card-title">@Model.TotalIngredients</h3>
+                    <p class="card-text">Total Ingredients</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Average Times</h5>
+                    <p>Preparation Time: @Model.AveragePrepTime.ToString("F1") minutes</p>
+                    <p>Cooking Time: @Model.AverageCookTime.ToString("F1") minutes</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Recipes per Category</h5>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Category</th>
+                                <th>Number of Recipes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var category in Model.RecipesPerCategory)
+                            {
+                                <tr>
+                                    <td>@category.CategoryName</td>
+                                    <td>@category.RecipeCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Most Used Ingredients</h5>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Ingredient</th>
+                                <th>Times Used</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var ingredient in Model.MostUsedIngredients)
+                            {
+                                <tr>
+                                    <td>@ingredient.IngredientName</td>
+                                    <td>@ingredient.UsageCount</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

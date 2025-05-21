@@ -1,0 +1,66 @@
+@model RecipeManager.Models.Recipe
+
+@{
+    ViewData["Title"] = "Recipe Details";
+}
+
+<div class="container">
+    <h1>@Model.Title</h1>
+
+    <div class="row mt-4">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Description</h5>
+                    <p class="card-text">@Model.Description</p>
+
+                    <h5 class="card-title mt-4">Instructions</h5>
+                    <p class="card-text">@Model.Instructions</p>
+
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h5>Preparation Time</h5>
+                            <p>@Model.PrepTime minutes</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h5>Cooking Time</h5>
+                            <p>@Model.CookTime minutes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Recipe Information</h5>
+                    <p><strong>Category:</strong> <a asp-controller="Categories" asp-action="Details" asp-route-id="@Model.CategoryId">@Model.Category?.Name</a></p>
+                    <p><strong>Created:</strong> @Model.CreatedDate.ToLongDateString()</p>
+                </div>
+            </div>
+
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">Ingredients</h5>
+                    <ul class="list-group list-group-flush">
+                        @foreach (var ingredient in Model.RecipeIngredients)
+                        {
+                            <li class="list-group-item">
+                                <a asp-controller="Ingredients" asp-action="Details" asp-route-id="@ingredient.IngredientId">
+                                    @ingredient.Ingredient.Name
+                                </a>
+                                - @ingredient.Amount @ingredient.Unit
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div> 

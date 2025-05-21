@@ -1,0 +1,42 @@
+@model RecipeManager.Models.Recipe
+
+@{
+    ViewData["Title"] = "Delete Recipe";
+}
+
+<div class="container">
+    <h1>Delete Recipe</h1>
+    <div class="alert alert-danger">
+        <h4>Are you sure you want to delete this recipe?</h4>
+        <p>This action cannot be undone.</p>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Title</h5>
+            <p class="card-text">@Model.Description</p>
+
+            <dl class="row">
+                <dt class="col-sm-3">Category</dt>
+                <dd class="col-sm-9">@Model.Category?.Name</dd>
+
+                <dt class="col-sm-3">Created Date</dt>
+                <dd class="col-sm-9">@Model.CreatedDate.ToLongDateString()</dd>
+
+                <dt class="col-sm-3">Preparation Time</dt>
+                <dd class="col-sm-9">@Model.PrepTime minutes</dd>
+
+                <dt class="col-sm-3">Cooking Time</dt>
+                <dd class="col-sm-9">@Model.CookTime minutes</dd>
+            </dl>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </form>
+    </div>
+</div> 
