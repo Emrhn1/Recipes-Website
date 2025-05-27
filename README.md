@@ -1,25 +1,27 @@
-🔧 Features
+# 🍽️ Recipe Management Website
+
+# 🔧 Features
 ✅ Create Recipes: Add new recipes with the following required fields:
 
-Title
+- Title
 
-Description
+- Description
 
-Instructions
+- Instructions
 
-Category (each recipe must belong to at least one category)
+- Category (each recipe must belong to at least one category)
 
-Preparation Time
+- Preparation Time
 
-Cooking Time
+- Cooking Time
 
-✏️ Edit Recipes: Update existing recipes anytime.
+ - ✏️  Edit Recipes: Update existing recipes anytime.
 
-❌ Delete Recipes: Remove recipes from the system.
+ - ❌ - Delete Recipes: Remove recipes from the system.
 
-🔍 View Details: See full details of any recipe you have created.
+ - 🔍 - View Details: See full details of any recipe you have created.
 
-🗂️ Manage Categories & Ingredients:
+ - 🗂️ - Manage Categories & Ingredients:
 
 Create new categories and ingredients.
 
@@ -31,5 +33,5 @@ Automatically updates whenever a new recipe, category, or ingredient is added.
 
 All statistics are saved to the database.
 
-💾 Tech Stack
+## 💾 Tech Stack
 (Optional: Add technologies used here, e.g., React, Node.js, MongoDB, etc.)
