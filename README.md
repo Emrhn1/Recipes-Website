@@ -34,4 +34,4 @@ Automatically updates whenever a new recipe, category, or ingredient is added.
 All statistics are saved to the database.
 
 ## 💾 Tech Stack
-(Optional: Add technologies used here, e.g., React, Node.js, MongoDB, etc.)
+(Optional: Add technologies used here)
